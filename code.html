@@ -82,20 +82,14 @@
                             //
                             // Generate fizzBuzz array from 1 to 100
                             function fizzBuzz(fizzValue, buzzValue) {
-                            
+
                                 let fbArray = [];
                             
                                 for (let i = 1; i &lt;= 100; i++) {
-                                    if (((i % fizzValue) == 0) && ((i % buzzValue) == 0)) {
-                                        fbArray.push("FizzBuzz");
-                                    } else if ((i % fizzValue) == 0) {
-                                        fbArray.push("Fizz");
-                                    } else if ((i % buzzValue) == 0) {
-                                        fbArray.push("Buzz");
-                                    } else {
-                                        fbArray.push(i);
-                                    }
+                                    let value = ((i % fizzValue == 0 ? 'Fizz' : '') + (i % buzzValue == 0 ? 'Buzz' : '') || i);
+                                    fbArray.push(value);
                                 }
+                                
                                 return fbArray;
                             }
                             
@@ -135,7 +129,10 @@
                         logic and displays the mapped values from 1 to 100.</p>
                     <h5>fizzBuzz</h5>
                     <p>fizzBuzz builds an array of 100 elements. Each element contains either a number from 1 to 100, or
-                        the text "Fizz", "Buzz" or "FizzBuzz" according to the divisibility requirements.</p>
+                        the text "Fizz", "Buzz" or "FizzBuzz" according to the divisibility requirements. Rather than
+                        using multiple nested "if/then/else" statements or "switch/case" statements, a 1-line algorithm
+                        is used which incorporates ternary operators and leverages the evaluation of "empty string" to
+                        "false".</p>
                     <h5>displayData</h5>
                     <p>displayData adds one row at a time to the displayed table body. Each row is assembled to contain
                         5 columns of data -- the next 5 elements from our 100-element FizzBuzz array. As each column is

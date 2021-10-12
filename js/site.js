@@ -25,16 +25,10 @@ function fizzBuzz(fizzValue, buzzValue) {
     let fbArray = [];
 
     for (let i = 1; i <= 100; i++) {
-        if (((i % fizzValue) == 0) && ((i % buzzValue) == 0)) {
-            fbArray.push("FizzBuzz");
-        } else if ((i % fizzValue) == 0) {
-            fbArray.push("Fizz");
-        } else if ((i % buzzValue) == 0) {
-            fbArray.push("Buzz");
-        } else {
-            fbArray.push(i);
-        }
+        let value = ((i % fizzValue == 0 ? 'Fizz' : '') + (i % buzzValue == 0 ? 'Buzz' : '') || i);
+        fbArray.push(value);
     }
+    
     return fbArray;
 }
 
